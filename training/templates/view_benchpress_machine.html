@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>マシンベンチプレスの記録</h1>
+    {% for bench_machine_data in bench_machine_datas %}
+    <table>
+        <tr>
+            <td>種目名</td>
+            <td>重量</td>
+            <td>回数</td>
+            <td>日付</td>
+        </tr>
+        <tr>
+            <td>{{ bench_machine_data.exercise }}</td>
+            <td>{{ bench_machine_data.weight }}kg</td>
+            <td>{{ bench_machine_data.reps }}回</td>
+            <td>{{ bench_machine_data.date }}</td><br>
+        </tr>
+    </table>
+    {% endfor %}
+    <a href="/">戻る</a>
+{% endblock %}

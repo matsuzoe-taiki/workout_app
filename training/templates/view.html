@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>{{ message }}</h1>
+    <form action="/add" method="POST">
+        <table>
+            <tr>
+                <td><input type='text' name='exercise' placeholder="種目名"></td>
+                <td><input type='number' name='weight' placeholder="重量"></td>
+                <td><input type='number' name="reps" placeholder="回数"></td>
+                <td><button type="submit">追加</button></td>
+            </tr>
+        </table>
+    </form>
+    {% for workout in workouts %}
+        <tr>
+            <td>{{ workout.exercise }}</td>
+            <td>{{ workout.weight }}kg</td>
+            <td>{{ workout.reps }}回</td>
+            <td>{{ workout.date.strftime("%Y-%m-%d") }}</td><br>
+        </tr>
+    {% endfor %}
+
+    <ul>
+        <li><a href="/benchpress">ベンチプレスの記録を見る</a></li>
+        <li><a href="/benchpress_machine">マシンベンチプレスの記録を見る</a></li>
+    </ul>
+{% endblock %}
